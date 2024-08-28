@@ -15,7 +15,7 @@ POST /users
 
 POST /authorization
 ```sh
-Envia codio de login para email
+Envia código de login OTP para email
 {
     "email": string
 }
@@ -32,13 +32,13 @@ Validação do codio e login
 
 GET /users-generate-link
 ```sh
-Link para conectar contas de Email e Linkedin
+Gera link para conectar contas de Email e Linkedin
 ```
 
-GET //users-webhook
+GET /users-webhook
 ```sh
 webhook usado quando uma conta é conectada com o link unipile
-link passada no arquivo .env
+Link passado no arquivo .env
 ```
 
 * Company
@@ -72,10 +72,10 @@ POST /automations
 whenever usado para automação
 
 * variaveis de ambiente
-DATABASE_URI=
-MONGOID_ENV=
-MAILER_ADDRESS=
-MAILER_PORT=
-UNIPILE_URL=
-UNIPILE_API_KEY=
-WEB_HOOK=
+*DATABASE_URI=
+*MONGOID_ENV=
+*MAILER_ADDRESS=
+*MAILER_PORT=
+*UNIPILE_URL=
+*UNIPILE_API_KEY=
+*WEB_HOOK=
