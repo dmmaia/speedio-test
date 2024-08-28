@@ -1,0 +1,14 @@
+development:
+  clients:
+    default:
+      uri: <%= ENV['DATABASE_URI'] %>
+      options:
+  options:
+  driver_options:
+test:
+  clients:
+    default:
+      uri: <%= ENV['DATABASE_URI'] %>
+      options:
+  options:
+  driver_options:

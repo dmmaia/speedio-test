@@ -1,0 +1,17 @@
+{
+    "configurations": [
+    {
+      "type": "rdbg",
+      "name": "Debug current file with rdbg",
+      "request": "launch",
+      "script": "./bin/rails s",
+      "useBundler": false,
+      "command": "ruby"
+    },
+    {
+      "type": "rdbg",
+      "name": "Attach with rdbg",
+      "request": "attach"
+    }
+  ]
+}

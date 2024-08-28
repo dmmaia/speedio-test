@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  tipo: MyString
+  message: MyString
+  programmed_to: 
+  sent_at: MyString
+  Date: MyString
+
+two:
+  company_id: 
+  tipo: MyString
+  message: MyString
+  programmed_to: 
+  sent_at: MyString
+  Date: MyString

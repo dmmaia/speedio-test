@@ -1,0 +1,17 @@
+development:
+  clients:
+    default:
+      uri: <%= ENV['DATABASE_URI'] %>
+      options:
+  options:
+  driver_options:
+test:
+  clients:
+    default:
+      database: speedio_test_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
