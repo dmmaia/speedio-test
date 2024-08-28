@@ -72,10 +72,10 @@ POST /automations
 whenever usado para automação
 
 * variaveis de ambiente
-*DATABASE_URI=
-*MONGOID_ENV=
-*MAILER_ADDRESS=
-*MAILER_PORT=
-*UNIPILE_URL=
-*UNIPILE_API_KEY=
-*WEB_HOOK=
+* DATABASE_URI=
+* MONGOID_ENV=
+* MAILER_ADDRESS=
+* MAILER_PORT=
+* UNIPILE_URL=
+* UNIPILE_API_KEY=
+* WEB_HOOK=
