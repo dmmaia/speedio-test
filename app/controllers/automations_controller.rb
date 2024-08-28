@@ -33,7 +33,10 @@ class AutomationsController < ApplicationController
 
   # POST /automations
   def create
+    
     @automation = Automation.new(automation_params)
+
+    raise "Tipo de ação inválida!" unless verify_types
 
     if @automation.save
       render json: @automation, status: :created, location: @automation
@@ -65,6 +68,10 @@ class AutomationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def automation_params
       params.require(:automation).permit(:company_id, :tipo, :message, :programmed_to, :sent_at, :Date)
+    end
+
+    def verify_types
+      [ "linkedin_connection", "linkedin_message", "email" ].include? params[:tipo]
     end
 
     def authorize_user

@@ -1,7 +1,6 @@
 
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:index, :update]
-  before_action :set_user, only: %i[ update, destroy ]
   before_action :authorize_user, only: [:update]
 
   def index
@@ -30,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(current_user.email)
     if @user.update(user_params)
       render json: @user
     else
@@ -62,9 +62,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find_by(current_user.email)
-    end
 
     def set_webhook
       params.permit(:status, :account_id, :name)
@@ -90,8 +87,8 @@ class UsersController < ApplicationController
       request["accept"] = 'application/json'
       request["content-type"] = 'application/json'
       request["X-API-KEY"] = ENV['UNIPILE_API_KEY']
-      request.body = "{\"type\":\"create\",\"providers\":[\"MAIL\",\"OUTLOOK\",\"GOOGLE\",\"LINKEDIN\"],\"expiresOn\":\""+Time.now.advance(minutes: 30)+"\",\"name\":\""+current_user._id+"\"}"
-
+      request.body = "{\"type\":\"create\",\"providers\":[\"LINKEDIN\",\"MAIL\",\"GOOGLE\",\"OUTLOOK\"],\"api_url\":\"https://"+ENV['UNIPILE_URL']+"\",\"expiresOn\":\"2025-12-31T23:59:59.999Z\",\"name\":\""+current_user._id+"\"}"
+                     
       response = http.request(request)
       JSON.parse(response.body)
     end

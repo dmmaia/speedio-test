@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   
   post '/users-webhook', to: "users#webhook"
+  get 'users-generate-link', to: "users#show_connect_link"
 
   get "up" => "rails/health#show", as: :rails_health_check
   post '/authorization', to: "sessions#authorization"

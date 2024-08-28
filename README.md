@@ -1,24 +1,81 @@
 # README
+* Ruby version 3.3.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Principais Rotas#
 
-Things you may want to cover:
+* User
 
-* Ruby version
+POST /users
+```sh
+{
+    "name": string,
+	"email": string,
+}
+```
 
-* System dependencies
+POST /authorization
+```sh
+Envia codio de login para email
+{
+    "email": string
+}
+```
 
-* Configuration
+POST /authenticate
+```sh
+Validação do codio e login
+{
+    "email": string,
+    "code": integer
+}
+```
 
-* Database creation
+GET /users-generate-link
+```sh
+Link para conectar contas de Email e Linkedin
+```
 
-* Database initialization
+GET //users-webhook
+```sh
+webhook usado quando uma conta é conectada com o link unipile
+link passada no arquivo .env
+```
 
-* How to run the test suite
+* Company
 
-* Services (job queues, cache servers, search engines, etc.)
+POST /companies
+```sh
+{
+    "name":string
+	"decisor": {
+		"email": string,
+		"linkedin_url": string
+	},
+	"cnpj": string
+}
+```
 
-* Deployment instructions
+* Automations
 
-* ...
+POST /automations
+```sh
+{
+    "company_id":string,
+	"tipo": linkedin_connection|linkedin_message|email,
+	"message": string,
+	"programmed_to": Date
+}
+```
+
+----
+
+whenever usado para automação
+
+* variaveis de ambiente
+DATABASE_URI=
+MONGOID_ENV=
+MAILER_ADDRESS=
+MAILER_PORT=
+UNIPILE_URL=
+UNIPILE_API_KEY=
+WEB_HOOK=
